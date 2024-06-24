@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Usuário</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 20px; /* Espaçamento de 20px das paredes */
+            box-sizing: border-box; /* Inclui o padding na largura e altura total */
+            width: calc(100% - 40px); /* Compensa o padding */
+            height: calc(100% - 40px); /* Compensa o padding */
+            display: flex;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+        .opcoes {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Alinha os itens ao topo */
+            align-items: flex-start; /* Alinha os itens à esquerda */
+            position: absolute;
+            top: 70px; /* Ajusta o espaço abaixo do título "Histórico" */
+            left: 20px; /* Mantém 20px de distância da borda esquerda */
+        }
+        .opcao {
+            margin-bottom: 10px; /* Espaçamento entre os quadrados da esquerda */
+            font-size: 24px;
+            width: 120px;
+            height: 93px;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .mapaCasa {
+            font-size: 20px;
+            width: calc(100% - 220px); /* Compensa a largura dos quadrados da esquerda e o espaçamento */
+            height: calc(100% - 129px); /* Compensa o padding vertical */
+            background-color: #000000;
+            color: #ffffff; /* Cor branca para o texto */
+            position: absolute;
+            top: 70px; /* Mantém 70px do topo */
+            left: 180px; /* Mantém 180px de distância dos quadrados da esquerda */
+            padding: 20px;
+            overflow: auto; /* Permite rolagem se o conteúdo for maior que o quadrado */
+        }
+        .title {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .photo-upload {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .photo-upload label {
+            cursor: pointer;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            width: 200px;
+            text-align: center;
+        }
+        .photo-upload input[type="file"] {
+            display: none;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Cadastrar Usuário</div>
+    <div class="opcoes">
+        <a href="historico.html" class="opcao">Histórico</a>
+        <a href="Cartão.html" class="opcao">Cartão</a>
+        <a href="Senha.html" class="opcao">Senha</a>
+        <a href="agendar.html" class="opcao">Programar</a>
+        <a href="usuarios.html" class="opcao">Usuários</a>
+        <a href="casas_cadastradas.html" class="opcao">Casas Cadastradas</a>
+        <a href="index.html"><div class="opcao">Cadastrar Casa</div></a>
+    </div>
+    <div class="mapaCasa">
+        <form id="cadastrarForm">
+            <div class="form-section">
+                <h2>Identificação do Usuário</h2>
+                <label for="nome_usuario">Nome Completo:</label>
+                <input type="text" id="nome_usuario" name="nome_usuario" required>
+
+                <label for="documento">Documento de Identificação (CPF, RG):</label>
+                <input type="text" id="documento" name="documento" required>
+            </div>
+            <div class="form-section">
+                <h2>Dados de Contato</h2>
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-section">
+                <h2>Foto do Usuário</h2>
+                <div class="photo-upload">
+                    <label for="foto_usuario">Selecione uma foto</label>
+                    <input type="file" id="foto_usuario" name="foto_usuario" accept="image/*" required>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2>Configuração do Cartão</h2>
+                <label for="numero_cartao">Número do Cartão:</label>
+                <input type="text" id="numero_cartao" name="numero_cartao" required>
+
+                <label for="validade_cartao">Validade do Cartão:</label>
+                <input type="text" id="validade_cartao" name="validade_cartao" required>
+            </div>
+            <div class="form-section">
+                <h2>Cadastro no Sistema de Controle de Acesso</h2>
+                <label for="nivel_acesso">Nível de Acesso:</label>
+                <select id="nivel_acesso" name="nivel_acesso" required>
+                    <option value="">Selecione...</option>
+                    <option value="1">Administrador</option>
+                    <option value="2">Usuário Comum</option>
+                </select>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="button">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
